@@ -6,7 +6,7 @@ By Kechun Wang — Computational Arts, Goldsmiths, University of London
 
 **Video:** https://vimeo.com/1223816517?fl=ip&fe=ec
 
-![Chorus installation](chorus%20photo/1.JPG)
+![Chorus installation](./images/1.JPG)
 
 ## Description
 
@@ -14,13 +14,13 @@ Chorus is an interactive installation that explores the layered nature of inner 
 
 ## Concept: why a chessboard
 
-![Detail of the suspended chessboard](chorus%20photo/3.JPG)
+![Detail of the suspended chessboard](./images/3.JPG)
 
 The work takes the form of a grid-like chessboard as its main interactive interface. The grid represents a sense of order, similar to the way we try to organise and control our thoughts. The chessboard also reflects the contrast between a simple external action and a complex internal process. When someone plays chess, what others see may be just a single move, but before that move is made, the player may already be imagining different routes, choices and possible outcomes in their mind. Behind one seemingly definite action, multiple lines of thought can exist at the same time. This reflects the idea behind Chorus: while there may be only one physical action on the surface, multiple inner voices can exist simultaneously.
 
 ## Interaction
 
-![Visitors interacting with Chorus](chorus%20photo/2.JPG)
+![Visitors interacting with Chorus](./images/2.JPG)
 
 When the audience gently pushes the board, its balance is disturbed, triggering changes in sound and LED light. Different layers of sound begin to overlap and interact, like multiple thoughts appearing in the mind at the same time. Through this process, the work moves between order and disorder, control and loss of control.
 
@@ -75,4 +75,4 @@ Final submit/
 ## Credits
 
 Kechun Wang, MA/MFA Computational Arts, Goldsmiths, University of London.
-See `Chorus_Final_Proposal.pdf` for the full concept, research context, and references.
+
