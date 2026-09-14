@@ -32,6 +32,23 @@ An MPU6050 sensor mounted on the suspended board detects its movement and sends 
 - **Sound** — `File for code/Final.maxpat` receives that OSC stream on port 8000 and extracts motion features from the raw accelerometer/gyroscope signal to control the sound layers. The initial design included four sound layers, but during testing the sensitivity of the sensor made some interactions difficult to control consistently, so the final version uses two overlapping sound layers instead. This keeps a sense of overlap, conflict and unpredictability, while making the relationship between the audience's movement and the sound response clearer.
 - **Light** — `File for code/gyro_to_led.maxpat` listens to the same accelerometer stream and maps it to colour and position (X → position along the strip, Y → green, Z → blue), sending `/led/pos` and `/led/color` OSC messages to a second Pico W (`File for code/pico_led_wifi.ino`) that drives a 41-pixel NeoPixel strip, producing a moving, glowing segment that echoes the board's motion.
 
+### Inside the Max/MSP patch
+
+The sensor's OSC stream (`/accel`, `/gyro`) is routed into `Final.maxpat`, where it is turned into four motion features — **stillness**, **impact**, **rotation** and **tremor** — that drive the sound layers feeding into `dac~`. The initial design used four simultaneous sound layers to represent the complexity of overlapping thoughts, but the MPU6050 proved extremely sensitive to small movements, so during testing the layers were reduced to the two that remained: `polyphonic_voices` and `tremor_bubble`. Fewer layers made the relationship between movement and sound easier for visitors to understand while still preserving overlap, interference and unpredictability.
+
+![Max/MSP patch overall structure](images/sound%20overall.png)
+*The Max/MSP patch's overall structure — OSC input from the sensor, feature extraction (stillness, impact, rotation, tremor), and the two sound layers feeding into `dac~`.*
+
+![polyphonic_voices patch](images/polyphonic.png)
+*`polyphonic_voices` — slow, drifting overlapping tones; the ambient layer heard when the board is left still.*
+
+![tremor_bubble patch](images/tremor.png)
+*`tremor_bubble` — granular, impact-driven synthesis, triggered when the board is pushed.*
+
+![LED-control patch](images/led.png)
+*The LED-control patch — the accelerometer stream is mapped to position (X) and colour (Y → green, Z → blue), then sent as OSC (`/led/pos`, `/led/color`) to the LED strip's Pico W.*
+
+
 ## Reflection
 
 Chorus does not try to fully visualise or explain our thoughts. Instead, it transforms this layered and constantly changing inner state into an experience that can be felt through the body. The audience tries to control the board, but each movement also creates a new disturbance. For me, interaction is not simply a tool for triggering sound and light; it becomes part of the emotional expression of the work itself.
@@ -76,3 +93,16 @@ Final submit/
 
 Kechun Wang, MA/MFA Computational Arts, Goldsmiths, University of London.
 
+# References
+
+- Bakhtin, M. (1984) *Problems of Dostoevsky's Poetics*. Minneapolis: University of Minnesota Press.
+- Cardiff, J. and Bures Miller, G. (2001) *The Forty Part Motet*. [Sound installation]. Available at: Cardiff & Miller official website (Accessed: 1 June 2026).
+- Cod.Act (2018) *Sound City*. [Sound installation]. Available at: Cod.Act official website (Accessed: 1 June 2026).
+- Cod.Act (2004) *Siliknost 2*. [Performance]. Available at: Cod.Act official website (Accessed: 1 June 2026).
+- Correo Electrónico (2025) *Gyro*. [Interactive installation]. Available via CreativeApplications.Net (Accessed: 2026).
+- Fernyhough, C. (2016) *The Voices Within: The History and Science of How We Talk to Ourselves*. London: Profile Books.
+- Hiroki, R. (2003) *Vibrator*. [Film]. Japan.
+- Lozano-Hemmer, R. (2006) *Pulse Room*. [Interactive installation]. Available at: Rafael Lozano-Hemmer official website (Accessed: 1 June 2026).
+- Lucier, A. (1969) *I Am Sitting in a Room*. [Sound work].
+- SOMA Laboratory (n.d.) *Lyra-8*. [Synthesiser]. Available at: SOMA Laboratory official website (Accessed: 1 June 2026).
+- Theremin, L. (1920) *Theremin*. [Electronic musical instrument].
